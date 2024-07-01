@@ -37,11 +37,11 @@ function ajaxCall(url, postData, callback) {
 
 
 function showSuccess(msj) {
-    // $().toastmessage('showSuccessToast', msj);
+     $().toastmessage('showSuccessToast', msj);
 }
 
 function showNotice(msj) {
-    // $().toastmessage('showNoticeToast', msj);
+     $().toastmessage('showNoticeToast', msj);
 }
 
 

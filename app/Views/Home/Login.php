@@ -8,6 +8,11 @@
 <html>
 
 <head>
+  <?php
+  header("Access-Control-Allow-Origin: *");
+  header("Access-Control-Allow-Methods: PUT, GET, POST");
+  header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+  ?>
   <title>Sistema de Control de Cajas</title>
   <!--Made with love by Mutiullah Samim -->
 
@@ -19,10 +24,23 @@
 
   <!--Custom styles-->
   <link rel="stylesheet" type="text/css" href="<?= CSS . 'login.css' ?>">
+
+  <link type="text/css" href="<?= JS ?>library/toast/resources/css/jquery.toastmessage.css" rel="stylesheet" />
 </head>
 
 <body>
+  <div class="align-item-end">
+    <div class="toast-container fixed-top mr-4 mt-3" style="place-self: end;"></div>
+  </div>
   <div class="container">
+
+    <?php if (session()->get('success')) : ?>
+      <div class="alert alert-success" role="alert">
+        SESION INICIADA
+        <?= session()->get('success') ?>
+      </div>
+    <?php endif; ?>
+
     <div class="d-flex justify-content-center h-100">
       <div class="card">
         <div class="card-header">
@@ -31,22 +49,22 @@
           </div>
         </div>
         <div class="card-body">
-          <form action="#" id="loginForm" >
+          <form action="#" id="loginForm">
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="Usuario">
+              <input type="text" class="form-control" name="usuario" placeholder="Usuario">
 
             </div>
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
-              <input type="password" class="form-control" placeholder="Contraseña">
+              <input type="password" name="password" class="form-control" placeholder="Contraseña">
             </div>
             <div class="row align-items-center remember">
-              <input type="checkbox">Recordar Sesión
+              <input type="checkbox" name="guardarSesion">Recordar Sesión
             </div>
             <div class="form-group">
               <input type="button" value="Login" id="loginBoton" class="btn float-right login_btn">
@@ -67,5 +85,11 @@
 </body>
 
 </html>
+<script type="text/javascript">
+  var rutaLogin = '<?= API ?>/login'
+</script>
 
-<script src="<?= JS.'front/login.js' ?>"></script>
+<script src="<?= JS . 'front/login.js' ?>"></script>
+<script src="<?= JS . 'library/gral.js' ?>"></script>
+<script src="<?= JS . 'library/validate/jquery.validate.min.js' ?>"></script>
+<script src="<?= JS . 'library/toast/jquery.toastmessage.js' ?>"></script>

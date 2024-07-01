@@ -5,7 +5,8 @@
 
 
 * html .toast-container {
-  position: absolute;
+  position: fixed;
+  align-content: end;
 }
 
 .toast-item {

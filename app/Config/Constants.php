@@ -100,10 +100,12 @@ define('IMG_URL','http://localhost/sistemaCajas/public/assets/img/');
 define('IMG_DOC','http://localhost/sistemaCajas/public/assets/documents/');
 
 //URL base SIN / al final
-define('DIR', 'http://localhost/sistemaCajas/');
+define('API', 'http://localhost:8080/');
 
 
 define('CSS','http://localhost/sistemaCajas/public/assets/css/');
 
 
 define('JS','http://localhost/sistemaCajas/public/assets/js/');
+
+
