@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    <?= $this->extend('layout') ?>
+
+    <?= $this->section('contenido') ?>
+
     <h1>Movimientos de Caja</h1>
 
     <a href="<?= base_url('cajamovimiento/create') ?>" class="btn btn-primary">Agregar Movimiento</a>
@@ -50,3 +54,5 @@
 </body>
 
 </html>
+
+<?php echo  $this->endSection(); ?>

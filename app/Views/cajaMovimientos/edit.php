@@ -10,18 +10,18 @@
 <body>
     <h1>Editar caja de cirugía <?= $cajaMovimiento['id'] ?></h1>
 
-    <form method="post" action="<?= site_url('caja/update/' . $cajaMovimiento['id']) ?>">
+    <form method="post" action="<?= base_url('cajamovimiento/update/' . $cajaMovimiento['id']) ?>">
         <div class="form-group">
             <label for="caja_id">Caja:</label>
             <input type="text" name="caja_id" id="caja_id" class="form-control" required value="<?=  $cajaMovimiento['caja_id'] ;?>">
         </div>
         <div class="form-group">
             <label for="fecha_entrada">Fecha de Entrada:</label>
-            <input type="text" name="fecha_entrada" id="fecha_entrada" class="form-control" required value="<?=  $cajaMovimiento['fecha_entrada'] ;?>">
+            <input type="date" name="fecha_entrada" id="fecha_entrada" class="form-control" required value="<?=  $cajaMovimiento['fecha_entrada'] ;?>">
         </div>
         <div class="form-group">
             <label for="fecha_salida">Fecha de Salida:</label>
-            <input type="text" name="fecha_salida" id="fecha_salida" class="form-control" required value="<?=  $cajaMovimiento['fecha_salida'] ;?>">
+            <input type="date" name="fecha_salida" id="fecha_salida" class="form-control" required value="<?= $cajaMovimiento['fecha_salida'] ;?>">
         </div>
         <div class="form-group">
             <label for="paciente">Paciente:</label>
@@ -38,7 +38,7 @@
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 
-    <a href="<?= site_url('caja') ?>" class="btn btn-link">Volver a la lista</a>
+    <a href="<?= base_url('cajamovimiento') ?>" class="btn btn-link">Volver a la lista</a>
 </body>
 
 </html>
