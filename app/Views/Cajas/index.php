@@ -8,13 +8,19 @@
 </head>
 
 <body>
-    
+
     <?= $this->extend('layout') ?>
-    
+
     <?= $this->section('contenido') ?>
-    <h1>Cajas de cirugía</h1>
-    
-    <a href="<?= base_url('caja/create') ?>" class="btn btn-primary">Crear caja</a>
+    <div class="mt-5 clearfix"></div>
+
+    <h3>Cajas de cirugía</h3>
+    <div class="container-fluid text-right pe-3 pb-3 ">
+        <a href="<?= base_url('caja/create') ?>" class="btn btn-success">
+            <i class="fas fa-plus"></i>
+            Agregar Caja
+        </a>
+    </div>
 
     <table class="table table-striped">
         <thead>
@@ -34,14 +40,29 @@
                 <tr>
                     <td><?= $caja['id'] ?></td>
                     <td><?= $caja['descripcion'] ?></td>
-                    <td><?= $caja['estado'] ?></td>
+                    <td>
+                        <?php
+                        switch ($caja['estado']) {
+                            case 'disponible':
+                                echo "<i class='fas fa-circle text-success '></i>";
+                                break;
+                            case 'ocupada':
+                                echo "<i class='fas fa-circle text-warning '></i>";
+                                break;
+                            default:
+                                echo "<i class='fas fa-circle text-danger'></i>";
+                                break;
+                        }
+                        ?>
+                        <b style="font-size: smaller;" ><?= strtoupper($caja['estado']);?></b>
+                    </td>
                     <td><?= $caja['contenido'] ?></td>
                     <td><?= $caja['fecha_retiro'] ?></td>
                     <td><?= $caja['momento_retiro'] ?></td>
                     <td>
-                        <a href="<?= base_url('caja/show/' . $caja['id']) ?>" class="btn btn-info">Ver</a>
-                        <a href="<?= base_url('caja/edit/' . $caja['id']) ?>" class="btn btn-warning">Editar</a>
-                        <a href="<?= base_url('caja/delete/' . $caja['id']) ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="<?= base_url('caja/show/' . $caja['id']) ?>" class="btn btn-light"><i class="fas fa-eye text-primary "></i></a>
+                        <a href="<?= base_url('caja/edit/' . $caja['id']) ?>" class="btn btn-light"><i class="fas fa-pen text-info "></i></a>
+                        <a href="<?= base_url('caja/delete/' . $caja['id']) ?>" class="btn btn-light"><i class="fas fa-trash text-danger "></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>
