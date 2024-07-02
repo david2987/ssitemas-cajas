@@ -100,9 +100,7 @@
                 <th>ID</th>
                 <th>Descripción</th>
                 <th>Estado</th>
-                <th>Contenido</th>
-                <th>Fecha retiro</th>
-                <th>Momento retiro</th>
+                <th>Contenido</th>                                
                 <th></th>                                              
             </tr>
         </thead>
@@ -135,12 +133,7 @@
                         <!-- <?php // $caja['contenido'] 
                                 ?> -->
 
-                    </td>
-                    <td>
-                        <?= date_format(date_create($caja['fecha_retiro']), "d/m/Y"); ?>
-                    </td>
-                    <td> <?= $caja['momento_retiro']; ?>
-                    </td>
+                    </td>                                      
                     <td>
                         <a href="<?= base_url('cajamovimiento/show/' . $caja['id']) ?>" class="btn btn-light"> <i class="fas fa-inbox"></i></a>
                         <a href="<?= base_url('caja/show/' . $caja['id']) ?>" data-bs-toggle="modal" data-bs-target="#modalMostrar"  class="btn btn-light"><i class="fas fa-eye text-primary "></i></a>

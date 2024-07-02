@@ -14,7 +14,12 @@ class CajaMovimientos extends Model
         'fecha_entrada',
         'paciente',
         'medico',
-        'servicio'
+        'servicio',
+        'tipo_entrada',
+        'momento_retiro',
+        'created_at',
+        'updated_at',
+        'usuario_despacho'     
     ];
 
     // Métodos para ABM (Alta, Baja, Modificación)

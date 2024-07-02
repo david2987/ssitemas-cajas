@@ -30,19 +30,23 @@
             <label for="contenido">Contenido:</label>
             <input type="text" name="contenido" id="contenido" class="form-control" value="<?= $caja['contenido'] ?>" required>
         </div>
+
         <div class="form-group">
-            <label for="fecha_retiro">Fecha retiro:</label>
-            <input type="date" name="fecha_retiro" id="fecha_retiro" class="form-control" value="<?= $caja['fecha_retiro'] ?>" required>
+            <label for="img_src">Imagen:</label>
+            <?php 
+                if($caja['img_src']){
+                    echo "<img src='".base_url(IMG_UPLOAD.$caja['img_src'])."' width='50' height='50'>";
+                }else{
+            ?>        
+                <label for="img_src">Imagen:</label>
+                <input- type="file" name="img_src" id="img_src" class="form-control" required>
+           <?php     
+                }
+            ?>
         </div>
-        <div class="form-group">
-            <label for="momento_retiro">Momento retiro:</label>
-            <select name="momento_retiro" id="momento_retiro" class="form-control" required>
-                <option value="Primer Mañana" <?php if ($caja['momento_retiro'] == 'Primer Mañana') echo 'selected'; ?>>Primer Mañana</option>
-                <option value="Segunda Mañana" <?php if ($caja['momento_retiro'] == 'Segunda Mañana') echo 'selected'; ?>>Segunda Mañana</option>
-                <option value="Tarde" <?php if ($caja['momento_retiro'] == 'Tarde') echo 'selected'; ?>>Tarde</option>
-                <option value="Noche" <?php if ($caja['momento_retiro'] == 'Noche') echo 'selected'; ?>>Noche</option>
-            </select>
-        </div>
+       
+        
+        
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 

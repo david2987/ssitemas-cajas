@@ -35,6 +35,17 @@
             <label for="servicio">Servicio:</label>
             <input type="text" name="servicio" id="servicio" class="form-control" required value="<?=  $cajaMovimiento['servicio'] ;?>">
         </div>
+
+        <div class="form-group">
+            <label for="momento_retiro">Momento retiro:</label>
+            <select name="momento_retiro" id="momento_retiro" class="form-control" required>
+                <option value="Primer Mañana" <?php if ($caja['momento_retiro'] == 'Primer Mañana') echo 'selected'; ?>>Primer Mañana</option>
+                <option value="Segunda Mañana" <?php if ($caja['momento_retiro'] == 'Segunda Mañana') echo 'selected'; ?>>Segunda Mañana</option>
+                <option value="Tarde" <?php if ($caja['momento_retiro'] == 'Tarde') echo 'selected'; ?>>Tarde</option>
+                <option value="Noche" <?php if ($caja['momento_retiro'] == 'Noche') echo 'selected'; ?>>Noche</option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 

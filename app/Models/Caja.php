@@ -8,11 +8,15 @@ class Caja extends Model
 {
     protected $table = 'cajas';
     protected $allowedFields = [
+        'id',
+        'numero_interno',
         'descripcion',
         'estado',
-        'contenido',
-        'fecha_retiro',
-        'momento_retiro'
+        'contenido',        
+        'qr_caja',
+        'img_src',
+        'created_at',
+        'updated_at'
     ];
 
     // Métodos para ABM (Alta, Baja, Modificación)

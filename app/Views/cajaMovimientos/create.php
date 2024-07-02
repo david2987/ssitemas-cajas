@@ -26,15 +26,25 @@
         <div class="form-group">
             <label for="paciente">Paciente:</label>
             <input type="text" name="paciente" id="paciente" class="form-control" required>
-        </div>   
+        </div>
         <div class="form-group">
             <label for="medico">Medico:</label>
             <input type="text" name="medico" id="medico" class="form-control" required>
-        </div>   
+        </div>
         <div class="form-group">
             <label for="servicio">Servicio:</label>
             <input type="text" name="servicio" id="servicio" class="form-control" required>
-        </div>       
+        </div>
+
+        <div class="form-group">
+            <label for="momento_retiro">Momento retiro:</label>
+            <select name="momento_retiro" id="momento_retiro" class="form-control" required>
+                <option value="1">Primer Mañana</option>
+                <option value="2">Segunda Mañana</option>
+                <option value="3">Tarde</option>
+                <option value="4">Noche</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
     </form>
 </body>

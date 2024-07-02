@@ -27,21 +27,15 @@
         </div>
         <div class="form-group">
             <label for="contenido">Contenido:</label>
-            <input type="text" name="contenido" id="contenido" class="form-control" required>
+            <textarea type="text" name="contenido" id="contenido" class="form-control" required>
+            </textarea>
         </div>
         <div class="form-group">
-            <label for="fecha_retiro">Fecha retiro:</label>
-            <input type="date" name="fecha_retiro" id="fecha_retiro" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="momento_retiro">Momento retiro:</label>
-            <select name="momento_retiro" id="momento_retiro" class="form-control" required>
-                <option value="Primer Mañana">Primer Mañana</option>
-                <option value="Segunda Mañana">Segunda Mañana</option>
-                <option value="Tarde">Tarde</option>
-                <option value="Noche">Noche</option>
-            </select>
-        </div>
+                <label for="img_src">Imagen:</label>
+                <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+            </textarea>
+        </div>  
+                            
         <button type="submit" class="btn btn-primary">Agregar</button>
     </form>
 </body>

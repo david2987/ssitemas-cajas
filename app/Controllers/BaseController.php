@@ -9,6 +9,7 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+
 /**
  * Class BaseController
  *
@@ -21,6 +22,8 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
+
+    private $ciqrcode;
     /**
      * Instance of the main Request object.
      *
@@ -35,7 +38,16 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    protected $helpers = [
+        'file',
+        'form',
+        'url',
+    ];
+
+    protected $libraries = [
+        'database',
+        'session',
+    ];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -52,7 +64,7 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+     
         // E.g.: $this->session = \Config\Services::session();
     }
 }

@@ -96,6 +96,9 @@ define('EVENT_PRIORITY_HIGH', 10);
 
 define('IMG_URL','http://localhost/sistemaCajas/public/assets/img/');
 
+define('IMG_UPLOAD','http://localhost/sistemaCajas/public/assets/img/upload/');
+
+define('QRCODE_URL',  'assets\\media\\qrcode\\');
 
 define('IMG_DOC','http://localhost/sistemaCajas/public/assets/documents/');
 

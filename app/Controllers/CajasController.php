@@ -2,11 +2,20 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
 use App\Models\Caja;
+use App\Controllers\BaseController;
+use App\Libraries\Ciqrcode;
 
-class CajasController extends Controller
+class CajasController extends BaseController
 {
+    private $ciqrcode;
+
+    public function __construct()
+    {
+        $this->ciqrcode = new ciqrcode();
+    }
+
+
     public function index()
     {
         $cajaModel = new Caja();
@@ -50,12 +59,25 @@ class CajasController extends Controller
     {
         $cajaModel = new Caja();
 
+        if ($this->request->getVar('img_src')) {
+
+        }
+
+        
+        // crea el QR de la caja
+        $data = strval(rand(1,1000000));
+        $qr   = $this->generate_qrcode( $data);
+        $qr_file = $qr['file']; 
+        
+
         $data = [
+            'numero_interno' => $this->request->getVar('numero_interno'),
             'descripcion' => $this->request->getVar('descripcion'),
             'estado' => $this->request->getVar('estado'),
             'contenido' => $this->request->getVar('contenido'),
-            'fecha_retiro' => $this->request->getVar('fecha_retiro'),
-            'momento_retiro' => $this->request->getVar('momento_retiro')
+            'qr_caja' => $qr_file  ,
+            'img_src' => $this->request->getVar('img_src'),
+            'created_at' => date(now())           
         ];
 
         $cajaModel->crearCaja($data);
@@ -70,7 +92,7 @@ class CajasController extends Controller
 
         if (!$caja) {
             return redirect('caja');
-        }       
+        }
 
         $data = [
             'title' => 'Editar caja de cirugía ' . $caja['id'],
@@ -85,11 +107,13 @@ class CajasController extends Controller
         $cajaModel = new Caja();
 
         $data = [
+            'numero_interno' => $this->request->getVar('numero_interno'),
             'descripcion' => $this->request->getVar('descripcion'),
             'estado' => $this->request->getVar('estado'),
             'contenido' => $this->request->getVar('contenido'),
-            'fecha_retiro' => $this->request->getVar('fecha_retiro'),
-            'momento_retiro' => $this->request->getVar('momento_retiro')
+            'qr_caja' => 'QR CAJA',
+            'img_src' => $this->request->getVar('img_src'),
+            'updated_at' => date(now())
         ];
 
         $cajaModel->editarCaja($id, $data);
@@ -103,5 +127,43 @@ class CajasController extends Controller
         $cajaModel->eliminarCaja($id);
 
         return redirect('caja');
+    }
+
+    function generate_qrcode($data)
+    {        
+        /* Data */
+        $hex_data   = bin2hex($data);
+        $save_name  = $hex_data . '.png';
+
+        /* QR Code File Directory Initialize */
+        $dir = QRCODE_URL;
+        
+        if (!file_exists($dir)) {
+            mkdir($dir, 0775, true);
+        }
+
+        /* QR Configuration  */
+        $config['cacheable']    = true;
+        $config['imagedir']     = $dir;
+        $config['quality']      = true;
+        $config['size']         = '1024';
+        $config['black']        = [255, 255, 255];
+        $config['white']        = [255, 255, 255];
+ 
+        $this->ciqrcode->initialize($config);
+
+        /* QR Data  */
+        $params['data']     = $data;
+        $params['level']    = 'L';
+        $params['size']     = 10;
+        $params['savename'] = FCPATH . $config['imagedir'] . $save_name;
+
+        $this->ciqrcode->generate($params);
+
+        /* Return Data */
+        return [
+            'content' => $data,
+            'file'    => $dir . $save_name,
+        ];
     }
 }

@@ -57,6 +57,17 @@ class cajaMovimientosController extends Controller
             'paciente' => $this->request->getVar('paciente'),
             'medico' => $this->request->getVar('medico'),
             'servicio' => $this->request->getVar('servicio'),
+            'tipo_entrada' => $this->request->getVar('tipo_entrada'),
+            'momento_retiro' => $this->request->getVar('momento_retiro'),
+            'created_at' => $this->request->getVar(''),
+            'usuario_despacho' => $this->request->getVar('usuario_despacho'),
+
+            // 'caja_id' => $this->request->getVar('caja_id'),
+            // 'fecha_salida' => $this->request->getVar('fecha_salida'),
+            // 'fecha_entrada' => $this->request->getVar('fecha_entrada'),
+            // 'paciente' => $this->request->getVar('paciente'),
+            // 'medico' => $this->request->getVar('medico'),
+            // 'servicio' => $this->request->getVar('servicio'),
         ];
 
         $cajaMovimientoModel->crearcajaMovimiento($data);
@@ -93,6 +104,10 @@ class cajaMovimientosController extends Controller
             'paciente' => $this->request->getVar('paciente'),
             'medico' => $this->request->getVar('medico'),
             'servicio' => $this->request->getVar('servicio'),
+            'tipo_entrada' => $this->request->getVar('tipo_entrada'),
+            'momento_retiro' => $this->request->getVar('momento_retiro'),
+            'updated_at' => $this->request->getVar(''),
+            'usuario_despacho' => $this->request->getVar('usuario_despacho'),
         ];
 
         $cajaMovimientoModel->editarcajaMovimiento($id, $data);
