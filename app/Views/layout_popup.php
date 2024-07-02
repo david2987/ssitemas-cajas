@@ -28,43 +28,11 @@
 </head>
 
 <body>
-
-    <!-- Menu -->
-    <header>
-
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e5e5e5; border-bottom: 0.5px solid #ccc;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"> <img src="<?= IMG_URL . 'Logo-Bioprot-001.jpg' ?>" style="width:211px ;filter: brightness(1.1); mix-blend-mode:multiply "> </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?= base_url('caja'); ?>">
-                                <B><i class="fas fa-box"></i> CAJAS</B></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= base_url('cajamovimiento'); ?>"><b> <i class="fas fa-sync-alt"></i> MOVIMIENTOS</b></a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <div class="mt-4 clearfix"></div>
+   
+    <div class="container-fluid">       
         <?= $this->renderSection('contenido') ?>
     </div>
-
-
-    <!-- Footer -->
-    <div class="footer bg-dark" style="position: fixed; left: 0;bottom: 0;width: 100%;">
-        <footer class="py-1 my-4">
-            <p class="text-center text-light text-body-secondary">© 2024 Bioprot Implantes</p>
-        </footer>
-    </div>
+ 
 </body>
 
 </html>

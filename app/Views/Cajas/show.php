@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    <h1>Caja de cirugía <?= $caja['id'] ?></h1>
 
     <div class="card">
         <div class="card-body">
@@ -19,8 +18,7 @@
             <p><b>Momento retiro:</b> <?= $caja['momento_retiro'] ?></p>
         </div>
     </div>
-
-    <a href="<?= base_url('caja') ?>" class="btn btn-link">Volver a la lista</a>
+    
 </body>
 
 </html>

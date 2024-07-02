@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear caja de cirugía</title>
+    <title>Agregar Cajas</title>
 </head>
 
 <body>
-    <h1>Crear caja de cirugía</h1>
+<?= $this->extend('layout_popup') ?>
 
+<?= $this->section('contenido') ?>
+    
     <form method="post" action="<?= base_url('caja/store') ?>">
         <div class="form-group">
             <label for="descripcion">Descripción:</label>
@@ -45,3 +47,5 @@
 </body>
 
 </html>
+
+<?php echo  $this->endSection(); ?>

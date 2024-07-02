@@ -8,8 +8,11 @@
 </head>
 
 <body>
-    <h1>Editar caja de cirugía <?= $caja['id'] ?></h1>
 
+    <?= $this->extend('layout_popup') ?>
+
+    <?= $this->section('contenido') ?>
+ 
     <form method="post" action="<?= base_url('caja/update/' . $caja['id']) ?>">
         <div class="form-group">
             <label for="descripcion">Descripción:</label>
@@ -43,7 +46,9 @@
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </form>
 
-    <a href="<?= site_url('caja') ?>" class="btn btn-link">Volver a la lista</a>
 </body>
 
 </html>
+
+
+<?php echo  $this->endSection(); ?>

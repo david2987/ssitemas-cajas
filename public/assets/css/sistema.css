@@ -86,3 +86,8 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+
+.fondoHeaderTabla{
+    background-color: rgb(53, 52, 68);
+    color: #fff;
+}
