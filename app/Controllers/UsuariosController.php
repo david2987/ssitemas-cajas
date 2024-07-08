@@ -1,58 +1,35 @@
-<?php 
+<?php
+
 namespace App\Controllers;
 
 use App\Models\UserModel;
 
-class Users extends BaseController
+class UsuariosController extends BaseController
 {
 	public function index()
-	{
-		$data = [];
-		helper(['form']);
+	{	
+	
+
+		$usuario = new UserModel();
+	
+		$array = ['usuario =' => $this->request->getVar('usuario'), 'password' => password_verify($this->request->getVar('password'))];
+
+		$user = $usuario->where('usuario', )
+			->first();
+
+		$this->setUserSession($user);
+
+		return redirect()->to('/caja');
+
 		
-
-		if ($this->request->getMethod() == 'post') {
-			//let's do the validation here
-			$rules = [
-				'usuario' => 'required|min_length[6]|max_length[50]',
-				'password' => 'required|min_length[8]|max_length[255]',
-			];
-
-			$errors = [
-				'password' => [
-					'validateUser' => 'Email or Password don\'t match'
-				]
-			];
-
-			if (! $this->validate($rules, $errors)) {
-				$data['validation'] = $this->validator;
-			}else{
-				$model = new UserModel();
-
-				$user = $model->where('usuario', $this->request->getVar('email'))
-											->first();
-
-				$this->setUserSession($user);				
-				return redirect()->to('dashboard');
-
-			}
-		}
-
-		$data['ok'] = false;
-		$data['mensaje'] = 'Error al Iniciar sesion.';
-		return $data;
- 
-		// echo view('templates/header', $data);
-		// echo view('login');
-		// echo view('templates/footer');
 	}
 
-	private function setUserSession($user){
+	private function setUserSession($user)
+	{
 		$data = [
-			'id' => $user['id'],
-			'firstname' => $user['firstname'],
-			'lastname' => $user['lastname'],
-			'email' => $user['email'],
+			'id' => $user['id'],		
+			'nombre' => $user['nombre'],	
+			'usuario' => $user['usuario'],
 			'isLoggedIn' => true,
 		];
 
@@ -60,7 +37,8 @@ class Users extends BaseController
 		return true;
 	}
 
-	public function register(){
+	public function register()
+	{
 		$data = [];
 		helper(['form']);
 
@@ -74,9 +52,9 @@ class Users extends BaseController
 				'password_confirm' => 'matches[password]',
 			];
 
-			if (! $this->validate($rules)) {
+			if (!$this->validate($rules)) {
 				$data['validation'] = $this->validator;
-			}else{
+			} else {
 				$model = new UserModel();
 
 				$newData = [
@@ -89,7 +67,6 @@ class Users extends BaseController
 				$session = session();
 				$session->setFlashdata('success', 'Successful Registration');
 				return redirect()->to('/');
-
 			}
 		}
 
@@ -99,8 +76,9 @@ class Users extends BaseController
 		echo view('templates/footer');
 	}
 
-	public function profile(){
-		
+	public function profile()
+	{
+
 		$data = [];
 		helper(['form']);
 		$model = new UserModel();
@@ -110,31 +88,30 @@ class Users extends BaseController
 			$rules = [
 				'firstname' => 'required|min_length[3]|max_length[20]',
 				'lastname' => 'required|min_length[3]|max_length[20]',
-				];
+			];
 
-			if($this->request->getPost('password') != ''){
+			if ($this->request->getPost('password') != '') {
 				$rules['password'] = 'required|min_length[8]|max_length[255]';
 				$rules['password_confirm'] = 'matches[password]';
 			}
 
 
-			if (! $this->validate($rules)) {
+			if (!$this->validate($rules)) {
 				$data['validation'] = $this->validator;
-			}else{
+			} else {
 
 				$newData = [
 					'id' => session()->get('id'),
 					'firstname' => $this->request->getPost('firstname'),
 					'lastname' => $this->request->getPost('lastname'),
-					];
-					if($this->request->getPost('password') != ''){
-						$newData['password'] = $this->request->getPost('password');
-					}
+				];
+				if ($this->request->getPost('password') != '') {
+					$newData['password'] = $this->request->getPost('password');
+				}
 				$model->save($newData);
 
 				session()->setFlashdata('success', 'Successfuly Updated');
 				return redirect()->to('/profile');
-
 			}
 		}
 
@@ -144,7 +121,8 @@ class Users extends BaseController
 		echo view('templates/footer');
 	}
 
-	public function logout(){
+	public function logout()
+	{
 		session()->destroy();
 		return redirect()->to('/');
 	}

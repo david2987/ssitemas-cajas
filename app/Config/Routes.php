@@ -7,8 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 // Login
 $routes->get('/', 'Home::index');
-$routes->post('/login', 'Users::index');
-
+$routes->post('login', 'UsuariosController::index' );
 
 // Rutas para el controlador CajasController
 $routes->get('caja', 'CajasController::index');
@@ -18,6 +17,8 @@ $routes->get('caja/edit/(:num)', 'CajasController::edit/$1');
 $routes->post('caja/update/(:num)', 'CajasController::update/$1');
 $routes->get('caja/delete/(:num)', 'CajasController::delete/$1');
 $routes->get('caja/show/(:num)', 'CajasController::show/$1');
+$routes->post('caja/search', 'CajasController::search');
+$routes->get('cajas/pdf/(:num)','CajasController::pdfCaja/$1');
 
 
 

@@ -13,9 +13,7 @@
         <div class="card-body">
             <p><b>Descripción:</b> <?= $caja['descripcion'] ?></p>
             <p><b>Estado:</b> <?= $caja['estado']?></p>
-            <p><b>Contenido:</b> <?= $caja['contenido'] ?></p>
-            <p><b>Fecha retiro:</b> <?= $caja['fecha_retiro'] ?></p>
-            <p><b>Momento retiro:</b> <?= $caja['momento_retiro'] ?></p>
+            <p><b>Contenido:</b> <?= $caja['contenido'] ?></p>            
         </div>
     </div>
     

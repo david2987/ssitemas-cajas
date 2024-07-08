@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="card-body">
-          <form action="#" id="loginForm">
+          <form action="<?= base_url('login') ?>" method="post" >
             <div class="input-group form-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -67,7 +67,7 @@
               <input type="checkbox" name="guardarSesion">Recordar Sesión
             </div>
             <div class="form-group">
-              <input type="button" value="Login" id="loginBoton" class="btn float-right login_btn">
+              <input value="Login" type="submit"   class="btn float-right login_btn text-white ">
             </div>
           </form>
         </div>

@@ -18,6 +18,8 @@ class CajasController extends BaseController
 
     public function index()
     {
+
+
         $cajaModel = new Caja();
         $cajas = $cajaModel->obtenerCajas();
 
@@ -25,6 +27,24 @@ class CajasController extends BaseController
             'title' => 'Cajas de cirugía',
             'cajas' => $cajas
         ];
+
+        return view('cajas/index', $data);
+    }
+
+    public function search()
+    {
+
+        $descripcion = $this->request->getVar('descripcion');
+
+        $cajaModel = new Caja();
+        $cajas = $cajaModel->obtenerCajaFiltro($descripcion);
+
+
+        $data = [
+            // 'title' => 'Cajas de cirugía',
+            'cajas' => $cajas
+        ];
+
 
         return view('cajas/index', $data);
     }
@@ -46,6 +66,16 @@ class CajasController extends BaseController
         return view('cajas/show', $data);
     }
 
+
+    public function pdfCaja($id)
+    {                
+        $cajaModel = new Caja();
+        $caja = $cajaModel->obtenerCajaPdf($id);                            
+
+        return $caja['pdf_caja'];
+        // returqn json_encode($caja);
+    }
+
     public function create()
     {
         $data = [
@@ -60,24 +90,23 @@ class CajasController extends BaseController
         $cajaModel = new Caja();
 
         if ($this->request->getVar('img_src')) {
-
+            $img_src = '';
         }
 
-        
         // crea el QR de la caja
-        $data = strval(rand(1,1000000));
-        $qr   = $this->generate_qrcode( $data);
-        $qr_file = $qr['file']; 
-        
+        $data = strval(rand(1, 1000000));
+        $qr   = $this->generate_qrcode($data);
+        $qr_file = $qr['file'];
+
 
         $data = [
             'numero_interno' => $this->request->getVar('numero_interno'),
             'descripcion' => $this->request->getVar('descripcion'),
             'estado' => $this->request->getVar('estado'),
             'contenido' => $this->request->getVar('contenido'),
-            'qr_caja' => $qr_file  ,
-            'img_src' => $this->request->getVar('img_src'),
-            'created_at' => date(now())           
+            'qr_caja' => $qr_file,
+            'img_src' => $img_src,
+            'created_at' => date(now())
         ];
 
         $cajaModel->crearCaja($data);
@@ -130,14 +159,14 @@ class CajasController extends BaseController
     }
 
     function generate_qrcode($data)
-    {        
+    {
         /* Data */
         $hex_data   = bin2hex($data);
         $save_name  = $hex_data . '.png';
 
         /* QR Code File Directory Initialize */
         $dir = QRCODE_URL;
-        
+
         if (!file_exists($dir)) {
             mkdir($dir, 0775, true);
         }
@@ -149,7 +178,7 @@ class CajasController extends BaseController
         $config['size']         = '1024';
         $config['black']        = [255, 255, 255];
         $config['white']        = [255, 255, 255];
- 
+
         $this->ciqrcode->initialize($config);
 
         /* QR Data  */

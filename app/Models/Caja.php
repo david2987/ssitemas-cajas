@@ -12,12 +12,15 @@ class Caja extends Model
         'numero_interno',
         'descripcion',
         'estado',
-        'contenido',        
+        'contenido',
+        'pdf_caja',
         'qr_caja',
         'img_src',
         'created_at',
         'updated_at'
     ];
+
+
 
     // Métodos para ABM (Alta, Baja, Modificación)
     public function crearCaja($data)
@@ -29,6 +32,14 @@ class Caja extends Model
     public function obtenerCajas()
     {
         return $this->findAll();
+    }
+
+    public function obtenerCajaFiltro($descripcion = '', $estado = '')
+    {
+
+        //->orLike('estado',$estado)
+        $data = $this->like('descripcion', $descripcion)->findAll(); // $builder->where('descripcion', 'CAJA 1');             
+        return $data;
     }
 
     public function obtenerCaja($id)
@@ -44,5 +55,11 @@ class Caja extends Model
     public function eliminarCaja($id)
     {
         $this->delete($id);
+    }
+
+    public function obtenerCajaPdf($id)
+    {
+        $data = $this->find($id);      
+        return $data;
     }
 }
