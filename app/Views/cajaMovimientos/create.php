@@ -12,13 +12,14 @@
 <?= $this->extend('layout_popup') ?>
 
 <?= $this->section('contenido') ?>
-
-    <h1>Agregar Movimiento de Caja</h1>
+    
 
     <form method="post" action="<?= base_url('cajamovimiento/store') ?>">
         <div class="form-group">
-            <label for="caja_id">Caja:</label>
-            <input type="number" name="caja_id" value="<?= $caja; ?>"  id="caja_id" class="form-control" required>
+            
+            <h1 class="text-primary" ><?= $tituloCaja; ?></h1>
+            <input type="hidden" name="caja_id" value="<?= $caja; ?>"  id="caja_id" class="form-control" required>
+            <input type="hidden" name="tipo_entrada" value="<?php $tipoMovmiento; ?>">
         </div>
         <div class="form-group">
             <label for="fecha_entrada">Fecha de Entrada:</label>

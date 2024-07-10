@@ -158,7 +158,18 @@ class CajasController extends BaseController
         return redirect('caja');
     }
 
-    function generate_qrcode($data)
+    public function getInfoCaja($id){
+        $cajaModel = new Caja();
+        $caja = $cajaModel->obtenerCaja($id);
+
+        $data = [
+            'caja' => $caja
+        ];
+
+        return json_encode($data);
+    }
+
+    public function generate_qrcode($data)
     {
         /* Data */
         $hex_data   = bin2hex($data);
@@ -195,4 +206,7 @@ class CajasController extends BaseController
             'file'    => $dir . $save_name,
         ];
     }
+
+
+
 }

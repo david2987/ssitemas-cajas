@@ -2,8 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\Caja;
 use CodeIgniter\Controller;
-use App\Models\cajaMovimientos;
+use App\Controllers\CajasController;
+use App\Models\CajaMovimientos;
+
 
 class cajaMovimientosController extends Controller
 {
@@ -37,10 +40,23 @@ class cajaMovimientosController extends Controller
         return view('cajaMovimientos/show', $data);
     }
 
-    public function create($caja,$tipoMovmiento)
+    public function create($cajaid,$tipoMovmiento)
     {
+
+        // busca el titulo de la caja
+        $controllerLoader = new CajasController();
+        $caja_json = $controllerLoader->getInfoCaja($cajaid);
+        $caja = json_decode($caja_json);
+        
+        if($caja){
+            $tituloCaja = $caja->caja->descripcion;
+        }else{
+            $tituloCaja = 'CAJA SIN REGISTRAR';
+        }
+        
         $data = [
-            'caja' => $caja,
+            'caja' => $cajaid,   
+            'tituloCaja' => $tituloCaja,         
             'tipoMovmiento' => $tipoMovmiento
         ];
 
@@ -49,6 +65,7 @@ class cajaMovimientosController extends Controller
 
     public function store()
     {
+
         $cajaMovimientoModel = new cajaMovimientos();
 
         $data = [
@@ -70,10 +87,13 @@ class cajaMovimientosController extends Controller
             // 'medico' => $this->request->getVar('medico'),
             // 'servicio' => $this->request->getVar('servicio'),
         ];
+        try {
+            $cajaMovimientoModel->crearcajaMovimiento($data);            
+        } catch (\Throwable $th) {
+            return "<h1>Error al crear Movimiento </h1>";        
+        }
+        return "<h2 style='color:#3B9802' >Movimiento Creado Satisfactioriamente! </h2>";
 
-        $cajaMovimientoModel->crearcajaMovimiento($data);
-
-        return redirect('cajamovimiento');
     }
 
     public function edit($id)

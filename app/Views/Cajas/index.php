@@ -81,11 +81,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalMovimientoIngresoLabel">Caja</h1>
+                    <h1 class="modal-title fs-5" id="modalMovimientoIngresoLabel">Agregar Ingreso de Caja</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="agregarMovimientoIngreso" src="<?= base_url('#') ?>" style="width: 100%;"></iframe>
+                    <iframe id="agregarMovimientoIngreso" src="<?= base_url('#') ?>" style="width: 100%;height: 382px;"></iframe>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -100,11 +100,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalMovimientoEgresoLabel">Caja</h1>
+                    <h1 class="modal-title fs-5" id="modalMovimientoEgresoLabel">Agregar Egreso de Caja</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <iframe id="agregarMovimientoEgreso" src="<?= base_url('#') ?>" style="width: 100%;"></iframe>
+                    <iframe id="agregarMovimientoEgreso" src="<?= base_url('#') ?>" style="width: 100%;height: 382px;"  ></iframe>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
