@@ -37,10 +37,11 @@ class cajaMovimientosController extends Controller
         return view('cajaMovimientos/show', $data);
     }
 
-    public function create()
+    public function create($caja,$tipoMovmiento)
     {
         $data = [
-            'title' => 'Crear Movimiento de Caja'
+            'caja' => $caja,
+            'tipoMovmiento' => $tipoMovmiento
         ];
 
         return view('cajaMovimientos/create', $data);

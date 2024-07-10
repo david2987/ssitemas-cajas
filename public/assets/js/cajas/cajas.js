@@ -17,4 +17,11 @@ $(document).ready(function () {
 
     });
 
+
+    $('#botonMovimientoIngreso').click(function (e) {
+        e.preventDefault();
+        let cajaId = $(this).attr('data-id');
+        $("#agregarMovimientoIngreso").attr('src','http://localhost:8080/cajamovimiento/create/' + cajaId + '/' + 'I')        
+    }); 
+
 });

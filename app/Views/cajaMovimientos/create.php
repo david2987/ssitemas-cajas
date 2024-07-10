@@ -8,20 +8,25 @@
 </head>
 
 <body>
+    
+<?= $this->extend('layout_popup') ?>
+
+<?= $this->section('contenido') ?>
+
     <h1>Agregar Movimiento de Caja</h1>
 
     <form method="post" action="<?= base_url('cajamovimiento/store') ?>">
         <div class="form-group">
             <label for="caja_id">Caja:</label>
-            <input type="number" name="caja_id" id="caja_id" class="form-control" required>
+            <input type="number" name="caja_id" value="<?= $caja; ?>"  id="caja_id" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="fecha_entrada">Fecha de Entrada:</label>
-            <input type="date" name="fecha_entrada" id="fecha_entrada" class="form-control" required>
+            <input type="date" name="fecha_entrada" id="fecha_entrada"   value="<?php echo date("Y-m-d");?>" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="fecha_salida">Fecha de Salida:</label>
-            <input type="date" name="fecha_salida" id="fecha_salida" class="form-control" required>
+            <input type="date" name="fecha_salida" value="<?php echo date("Y-m-d",strtotime(date("d-m-Y")."+ 1 days"));?>" id="fecha_salida" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="paciente">Paciente:</label>
@@ -50,3 +55,5 @@
 </body>
 
 </html>
+
+<?php echo  $this->endSection(); ?>

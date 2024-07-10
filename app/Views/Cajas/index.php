@@ -8,13 +8,13 @@
 </head>
 
 <body>
-    
+
     <?= $this->extend('layout') ?>
 
     <?= $this->section('contenido') ?>
-    
 
-    <script src="<?= JS.'cajas/cajas.js' ?>"></script>
+
+    <script src="<?= JS . 'cajas/cajas.js' ?>"></script>
 
     <!-- Modal Agregar -->
     <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
@@ -26,9 +26,9 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <?php include_once('create.php')  ?> 
+                        <?php include_once('create.php')  ?>
                     </div>
-                 
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -39,7 +39,7 @@
     <!--  -->
 
     <!-- Modal Mostrar -->
-    <div class="modal fade "  id="modalMostrar" tabindex="-1" aria-labelledby="modalMostrarLabel" aria-hidden="true">
+    <div class="modal fade " id="modalMostrar" tabindex="-1" aria-labelledby="modalMostrarLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -56,17 +56,17 @@
         </div>
     </div>
 
-      <!-- Modal Mostrar contenido caja -->
-      <div class="modal fade " id="modalContenido" tabindex="-1" aria-labelledby="modalContenidoLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" style="min-height: 80%;" >
+    <!-- Modal Mostrar contenido caja -->
+    <div class="modal fade " id="modalContenido" tabindex="-1" aria-labelledby="modalContenidoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="min-height: 80%;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="modalContenidoLabel">Contenido de Caja</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                   <!-- contenido -->
-                   <iframe id="lectorPdf" style="width: 100%;"></iframe>
+                    <!-- contenido -->
+                    <iframe id="lectorPdf" style="width: 100%;"></iframe>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -74,6 +74,46 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Agregar Movimiento de Ingreso -->
+    <div class="modal fade " id="modalMovimientoIngreso" tabindex="-1" aria-labelledby="modalMovimientoIngresoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalMovimientoIngresoLabel">Caja</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="agregarMovimientoIngreso" src="<?= base_url('#') ?>" style="width: 100%;"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+
+    <!-- Agregar Movimiento de Egreso -->
+    <div class="modal fade " id="modalMovimientoEgreso" tabindex="-1" aria-labelledby="modalMovimientoEgresoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalMovimientoEgresoLabel">Caja</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="agregarMovimientoEgreso" src="<?= base_url('#') ?>" style="width: 100%;"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
 
 
     <h3>Cajas de cirugía</h3>
@@ -86,11 +126,12 @@
                     <label for="descripcion">Descripcion</label>
                     <input type="text" name="descripcion">
                     <label for="estado">Estado</label>
-                    <select name="estado" id="estado" >
+                    <select name="estado" id="estado">
                         <option value="">Cualquier Estado</option>
-                        <option value="PENDIENTE"> 
-                        <i class='fas fa-circle text-success '>   
-                        EN TRANSITO</option>
+                        <option value="PENDIENTE">
+                            <i class='fas fa-circle text-success '>
+                                EN TRANSITO
+                        </option>
                         <option value="DISPONIBLE">DISPONIBLE</option>
                         <option value="OCUPADA">OCUPADA</option>
                     </select>
@@ -106,15 +147,8 @@
 
             </div>
             <!--  -->
-            <div class="col-5">                
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">
-                    <i class="fas fa-arrow-circle-down"></i>
-                    Ingreso
-                </button>
-                <button type="button" class="btn btn-danger text-white" data-bs-toggle="modal" data-bs-target="#modalAgregar">
-                    <i class="fas fa-arrow-circle-up"></i>
-                    Egreso
-                </button>
+            <div class="col-5">
+
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAgregar">
                     <i class="fas fa-plus-circle"></i>
                     Agregar
@@ -131,6 +165,7 @@
                 <th>Descripción</th>
                 <th>Estado</th>
                 <th>Contenido</th>
+                <th  class="text-center">Ingreso/Egreso</th>
                 <th></th>
             </tr>
         </thead>
@@ -156,14 +191,25 @@
                         ?>
                         <b style="font-size: smaller;"><?= strtoupper($caja['estado']); ?></b>
                     </td>
-                    <td class="text-left" title="Ver Contenido de Caja"  >
+                    <td class="text-left" title="Ver Contenido de Caja">
                         <button class="btn btn-light">
                             <i class="fas fa-box-open"></i>
                         </button>
                     </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-success" data-id="<?= $caja['id'] ?>"  id="botonMovimientoIngreso" data-bs-toggle="modal" data-bs-target="#modalMovimientoIngreso">
+                            <i class="fas fa-arrow-circle-down"></i>
+
+                        </button>
+                        <button type="button" class="btn btn-danger text-white" data-id="<?= $caja['id'] ?>" id="botonMovimientoEgreso" data-bs-toggle="modal" data-bs-target="#modalMovimientoEgreso">
+                            <i class="fas fa-arrow-circle-up"></i>
+
+                        </button>
+                    </td>
                     <td>
-                        <a href="#" class="btn btn-light" id="pdfCaja" data-id="<?= $caja['id'] ?>" data-bs-toggle="modal" data-bs-target="#modalContenido"  >   <i class="fas fa-file-pdf"></i></a>
-                        <a href="<?= base_url('cajamovimiento/show/' . $caja['id']) ?>" class="btn btn-light" > <i class="fas fa-inbox"></i></a>
+
+                        <a href="#" class="btn btn-light" id="pdfCaja" data-id="<?= $caja['id'] ?>" data-bs-toggle="modal" data-bs-target="#modalContenido"> <i class="fas fa-file-pdf"></i></a>
+                        <a href="<?= base_url('cajamovimiento/show/' . $caja['id']) ?>" class="btn btn-light"> <i class="fas fa-inbox"></i></a>
                         <a href="<?= base_url('caja/show/' . $caja['id']) ?>" data-bs-toggle="modal" data-bs-target="#modalMostrar" class="btn btn-light"><i class="fas fa-eye text-primary "></i></a>
                         <a href="<?= base_url('caja/edit/' . $caja['id']) ?>" class="btn btn-light"><i class="fas fa-pen text-info "></i></a>
                         <a href="<?= base_url('caja/delete/' . $caja['id']) ?>" class="btn btn-light"><i class="fas fa-trash text-danger "></i></a>
