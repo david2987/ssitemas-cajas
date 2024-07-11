@@ -8,7 +8,7 @@ use App\Controllers\CajasController;
 use App\Models\CajaMovimientos;
 
 
-class cajaMovimientosController extends Controller
+class CajaMovimientosController extends Controller
 {
     public function index()
     {
