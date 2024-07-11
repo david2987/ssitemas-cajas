@@ -19,6 +19,7 @@
     <script src="<?= JS . 'cajas/cajas.js' ?>"></script>
 
     <script type="text/javascript">       
+    
             var documentUrl = '<?= PDF ?>'
             var url = '<?= API ?>'
     </script>

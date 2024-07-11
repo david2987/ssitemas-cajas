@@ -112,5 +112,5 @@ define('CSS','http://74.50.120.7/sistemaCajas/public/assets/css/');
 define('JS','http://74.50.120.7/sistemaCajas/public/assets/js/');
 
 
-define('PDF' , 'http://74.50.120.7/sistemaCajas/public/documents/cajas/');
+define('PDF' , 'http://74.50.120.7/sistemaCajas/public/assets/documents/cajas/');
 
