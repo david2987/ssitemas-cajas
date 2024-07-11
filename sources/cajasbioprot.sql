@@ -63,19 +63,7 @@ CREATE TABLE `caja_movimientos` (
 -- ----------------------------
 -- Records of caja_movimientos
 -- ----------------------------
-INSERT INTO `caja_movimientos` VALUES ('3', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'Prueba', 'Lazarte', 'Hospital', null, 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('4', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'adsadsa', 'sdas', 'sadasd', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('5', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfds', 'dsfsd', 'dsfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('8', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dfsdf', 'dsfdsf', 'sdfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('9', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsfds', 'fsdf', 'dsfsdfds', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('10', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsf', 'sdfsdfds', 'sdfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('11', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsf', 'sdfsdfds', 'sdfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('12', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsf', 'sdfsdfds', 'sdfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('13', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsf', 'sdfsdfds', 'sdfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('14', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsf', 'sdfsdfds', 'sdfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('15', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfdsf', 'dsfdsf', 'dsfdsf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('16', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'sdfdsf', 'dsfd', 'dsfsdf', '', 'Primer Mañana', null, null, null);
-INSERT INTO `caja_movimientos` VALUES ('17', '1', '2024-07-11 00:00:00', '2024-07-10 00:00:00', 'dsfsd', 'sdfds', 'dsfsd', '', 'Primer Mañana', null, null, null);
+
 
 -- ----------------------------
 -- Table structure for grupos
