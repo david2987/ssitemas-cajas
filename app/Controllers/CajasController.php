@@ -19,7 +19,7 @@ class CajasController extends BaseController
 
     public function index()
     {
-        $movimientos = new cajaMovimientosController;
+       // $movimientos = new cajaMovimientosController;
 
         $cajaModel = new Caja();
         $cajas = $cajaModel->obtenerCajas();
