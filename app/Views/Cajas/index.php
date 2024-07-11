@@ -177,6 +177,7 @@
                     <td><?= $caja['descripcion'] ?></td>
                     <td>
                         <?php
+                    
                         switch ($caja['estado']) {
                             case 'disponible':
                                 echo "<i class='fas fa-circle text-success '></i>";

@@ -15,12 +15,13 @@
     
 
     <form method="post" action="<?= base_url('cajamovimiento/store') ?>">
-        <div class="form-group">
-            
+        <div class="form-group">            
             <h1 class="text-primary" ><?= $tituloCaja; ?></h1>
             <input type="hidden" name="caja_id" value="<?= $caja; ?>"  id="caja_id" class="form-control" required>
-            <input type="hidden" name="tipo_entrada" value="<?php $tipoMovmiento; ?>">
+            <input type="hidden" name="tipo_entrada" value="<?php $tipoMovimiento; ?>">
         </div>
+        
+
         <div class="form-group">
             <label for="fecha_entrada">Fecha de Entrada:</label>
             <input type="date" name="fecha_entrada" id="fecha_entrada"   value="<?php echo date("Y-m-d");?>" class="form-control" required>

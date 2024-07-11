@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Caja;
 use App\Controllers\BaseController;
 use App\Libraries\Ciqrcode;
+use App\Controllers\cajaMovimientosController;
 
 class CajasController extends BaseController
 {
@@ -18,14 +19,14 @@ class CajasController extends BaseController
 
     public function index()
     {
-
+        $movimientos = new cajaMovimientosController;
 
         $cajaModel = new Caja();
         $cajas = $cajaModel->obtenerCajas();
 
         $data = [
             'title' => 'Cajas de cirugía',
-            'cajas' => $cajas
+            'cajas' => $cajas,
         ];
 
         return view('cajas/index', $data);
@@ -165,8 +166,13 @@ class CajasController extends BaseController
         $data = [
             'caja' => $caja
         ];
-
         return json_encode($data);
+    }
+
+    public function cambioEstadoCaja($id,$nuevoEstado){
+        $cajaModel = new Caja();
+        $cajaModel->cambioEstado($id,$nuevoEstado);
+
     }
 
     public function generate_qrcode($data)

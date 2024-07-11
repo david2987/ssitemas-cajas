@@ -34,6 +34,8 @@ class Caja extends Model
         return $this->findAll();
     }
 
+
+
     public function obtenerCajaFiltro($descripcion = '', $estado = '')
     {
 
@@ -62,4 +64,15 @@ class Caja extends Model
         $data = $this->find($id);      
         return $data;
     }
+
+    public function cambioEstado($id,$nuevoEstado){
+        $data = [
+            'estado' => $nuevoEstado
+        ];
+
+        log_message('error', var_export($nuevoEstado,true)); // <----- LOG 
+
+        $this->update($id, $data);
+    }
+
 }
