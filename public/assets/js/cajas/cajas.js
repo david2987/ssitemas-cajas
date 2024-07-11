@@ -9,7 +9,7 @@ $(document).ready(function () {
          $.get('/cajas/pdf/' + id,
             function (data, textStatus, jqXHR) {
                     if(data){
-                        $("#lectorPdf").attr('src','http://localhost/sistemaCajas/public/assets/documents/cajas/' + data)
+                        $("#lectorPdf").attr('src', documentUrl + data)
                     }        
             }   
         );
@@ -19,9 +19,10 @@ $(document).ready(function () {
 
 
     $('#botonMovimientoIngreso').click(function (e) {
-        e.preventDefault();
+        e.preventDefault();        
         let cajaId = $(this).attr('data-id');
-        $("#agregarMovimientoIngreso").attr('src','http://localhost:8080/cajamovimiento/create/' + cajaId + '/' + 'I')        
+        let urlCajaIngreso = url + 'cajamovimiento/create/' + cajaId + '/' + 'I';
+        $("#agregarMovimientoIngreso").attr('src', urlCajaIngreso )        
     }); 
 
 });
