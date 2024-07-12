@@ -29,7 +29,7 @@ class CajasController extends BaseController
             'cajas' => $cajas,
         ];
 
-        return view('cajas/index', $data);
+        return view('Cajas/index', $data);
     }
 
     public function search()

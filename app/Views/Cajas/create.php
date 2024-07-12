@@ -1,3 +1,4 @@
+
 <form method="post" action="<?= base_url('caja/store') ?>">
     <div class="form-group">
         <label for="descripcion">Descripción:</label>
