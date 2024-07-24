@@ -65,6 +65,7 @@ class CajasController extends BaseController
         ];
 
         return view('cajas/show', $data);
+        
     }
 
 
